@@ -4,10 +4,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/rest/")
 public class JsonRestController {
 
-    @RequestMapping("/rest/")
+    @RequestMapping("/")
     public String index() {
-        return "<h1>Greetings from Game Vendor!</h1>";
+        return "<h1>Greetings from Game Vendor REST Controller!</h1>";
     }
 }

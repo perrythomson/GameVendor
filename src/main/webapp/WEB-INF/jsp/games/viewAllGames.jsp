@@ -13,12 +13,12 @@
         <th>Title</th>
         <th>Description</th>
         <th>Category ID</th>
-        <th>Address</th>
+        <th>Price</th>
         <th>Vendor ID</th>
     </tr>
     <c:forEach items="${games}" var="game">
         <tr>
-            <td><a href="/games/viewGame/${game.gameId}"><c:out value="${game.gameId}" /></a></td>
+            <td><a href="/games/viewGame?gameId=${game.gameId}"><c:out value="${game.gameId}" /></a></td>
             <td><c:out value="${game.gameTitle}" /></td>
             <td><c:out value="${game.gameDescription}" /></td>
             <td><c:out value="${game.categoryId}" /></td>

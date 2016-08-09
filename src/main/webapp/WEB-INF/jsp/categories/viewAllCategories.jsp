@@ -17,7 +17,7 @@
     </tr>
     <c:forEach items="${categories}" var="category">
         <tr>
-            <td><a href="/categories/viewCategory/${category.categoryId}"><c:out value="${category.categoryId}" /></a></td>
+            <td><a href="/categories/viewCategory?categoryId=${category.categoryId}"><c:out value="${category.categoryId}" /></a></td>
             <td><c:out value="${category.categoryTitle}" /></td>
             <td><c:out value="${category.categoryDescription}" /></td>
             <%--ADD SCRIPT HERE--%>

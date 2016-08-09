@@ -13,6 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Controller
+@RequestMapping(value="/games/")
 public class GameController {
 
     @Autowired
@@ -21,27 +22,25 @@ public class GameController {
     @Autowired
     private CategoryDAO categoryDAO;
 
-    @RequestMapping(value="/games/viewAllGames")
+    @RequestMapping(value="viewAllGames")
     public String viewAllGames(ModelMap model) {
         model.addAttribute("games",gameDAO.findAll());
         return "games/viewAllGames";
     }
 
-    @RequestMapping(value="/games/findGame")
+    @RequestMapping(value="findGame")
     public String findGame() {
         return "games/findGame";
     }
 
-    @RequestMapping(value="/games/viewGame/{gameId}")
-    public String viewGame(@PathVariable("gameId") Long gameId, ModelMap model) {
+    @RequestMapping(value="viewGame")
+    public String viewGame(Long gameId, ModelMap model) {
         Game game = gameDAO.findOne(gameId);
-        Category category = categoryDAO.findOne(game.getCategoryId());
-        model.addAttribute("category",category);
         model.addAttribute("game",game);
         return "games/viewGame";
     }
 
-    @RequestMapping(value="/games/addGame")
+    @RequestMapping(value="addGame")
     public String addGame(ModelMap model) {
         Game game = new Game();
         model.addAttribute("game",game);
@@ -50,9 +49,8 @@ public class GameController {
         return "games/addGame";
     }
 
-
-    @RequestMapping(value="/games/saveNewGame")
-    public String saveNewGame(@ModelAttribute("game") Game game) {
+    @RequestMapping(value="saveNewGame")
+    public String saveNewGame(Game game) {
         if(game != null) {
             gameDAO.save(game);
         } else {
