@@ -13,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping(value="/games/")
+@RequestMapping(value="/games/")  //global request mapping
 public class GameController {
 
     @Autowired
@@ -28,6 +28,18 @@ public class GameController {
         return "games/viewAllGames";
     }
 
+    @RequestMapping(value="viewGamesInCategory")
+    public String viewGamesInCategory(Long categoryId, ModelMap model) {
+        model.addAttribute("games",gameDAO.findByCategoryId(categoryId));
+        return "games/viewAllGames";
+    }
+
+    @RequestMapping(value="viewGamesSearch")
+    public String viewGamesSearch(String searchStr, ModelMap model) {
+        model.addAttribute("games",gameDAO.findByNameStartsWith(searchStr));
+        return "games/viewAllGames";
+    }
+
     @RequestMapping(value="findGame")
     public String findGame() {
         return "games/findGame";
@@ -36,6 +48,8 @@ public class GameController {
     @RequestMapping(value="viewGame")
     public String viewGame(Long gameId, ModelMap model) {
         Game game = gameDAO.findOne(gameId);
+        Category category = categoryDAO.findOne(game.getCategoryId());
+        model.addAttribute("category",category);
         model.addAttribute("game",game);
         return "games/viewGame";
     }

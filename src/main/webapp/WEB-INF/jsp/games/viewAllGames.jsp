@@ -16,7 +16,7 @@
         <th>Price</th>
         <th>Vendor ID</th>
     </tr>
-    <c:forEach items="${games}" var="game">
+    <c:forEach var="game" items="${games}" >
         <tr>
             <td><a href="/games/viewGame?gameId=${game.gameId}"><c:out value="${game.gameId}" /></a></td>
             <td><c:out value="${game.gameTitle}" /></td>

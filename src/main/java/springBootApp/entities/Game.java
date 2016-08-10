@@ -30,7 +30,6 @@ public class Game {
     public long getGameId() {
         return gameId;
     }
-
     public void setGameId(long gameId) {
         this.gameId = gameId;
     }
@@ -38,7 +37,6 @@ public class Game {
     public String getGameTitle() {
         return gameTitle;
     }
-
     public void setGameTitle(String gameTitle) {
         this.gameTitle = gameTitle;
     }
@@ -46,7 +44,6 @@ public class Game {
     public String getGameDescription() {
         return gameDescription;
     }
-
     public void setGameDescription(String gameDescription) {
         this.gameDescription = gameDescription;
     }
@@ -54,7 +51,6 @@ public class Game {
     public long getCategoryId() {
         return categoryId;
     }
-
     public void setCategoryId(long categoryId) {
         this.categoryId = categoryId;
     }
@@ -62,7 +58,6 @@ public class Game {
     public String getGamePrice() {
         return gamePrice;
     }
-
     public void setGamePrice(String gamePrice) {
         this.gamePrice = gamePrice;
     }
@@ -70,7 +65,6 @@ public class Game {
     public long getVendorId() {
         return vendorId;
     }
-
     public void setVendorId(long vendorId) {
         this.vendorId = vendorId;
     }
