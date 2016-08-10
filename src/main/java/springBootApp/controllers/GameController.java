@@ -22,6 +22,9 @@ public class GameController {
     @Autowired
     private CategoryDAO categoryDAO;
 
+    @Autowired
+    private VendorDAO vendorDAO;
+
     @RequestMapping(value="viewAllGames")
     public String viewAllGames(ModelMap model) {
         model.addAttribute("games",gameDAO.findAll());
@@ -31,6 +34,12 @@ public class GameController {
     @RequestMapping(value="viewGamesInCategory")
     public String viewGamesInCategory(Long categoryId, ModelMap model) {
         model.addAttribute("games",gameDAO.findByCategoryId(categoryId));
+        return "games/viewAllGames";
+    }
+
+    @RequestMapping(value="viewGamesFromThisVendor")
+    public String viewGamesFromThisVendor(Long vendorId, ModelMap model) {
+        model.addAttribute("games",gameDAO.findByVendorId(vendorId));
         return "games/viewAllGames";
     }
 
@@ -85,7 +94,15 @@ public class GameController {
     private Map<String, String> getVendorIdsAndNames() {
         LinkedHashMap<String, String> hashMap = new LinkedHashMap<String, String>();
         hashMap.put("-1","-- None --");
-        // TODO: loop through vendors here...
+        for(Vendor vendor : vendorDAO.findAll()) {
+            hashMap.put(vendor.getVendorId()+"",vendor.getVendorName());
+        }
         return hashMap;
     }
+//    private Map<String, String> getVendorIdsAndNames() {
+//        LinkedHashMap<String, String> hashMap = new LinkedHashMap<String, String>();
+//        hashMap.put("-1","-- None --");
+//        // TODO: loop through vendors here...
+//        return hashMap;
+//    }
 }

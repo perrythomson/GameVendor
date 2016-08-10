@@ -36,6 +36,10 @@
         <td><c:out value="${game.categoryId}" /></td>
     </tr>
     <tr>
+        <td>Vendor Name:</td>
+        <td><c:out value="${vendor.vendorName}" /></td>
+    </tr>
+    <tr>
         <td>Vendor Id:</td>
         <td><c:out value="${game.vendorId}" /></td>
     </tr>

@@ -20,7 +20,6 @@ public class Category {
     public long getCategoryId() {
         return categoryId;
     }
-
     public void setCategoryId(long categoryId) {
         this.categoryId = categoryId;
     }
@@ -28,7 +27,6 @@ public class Category {
     public String getCategoryTitle() {
         return categoryTitle;
     }
-
     public void setCategoryTitle(String categoryTitle) {
         this.categoryTitle = categoryTitle;
     }
@@ -36,7 +34,6 @@ public class Category {
     public String getCategoryDescription() {
         return categoryDescription;
     }
-
     public void setCategoryDescription(String categoryDescription) {
         this.categoryDescription = categoryDescription;
     }
